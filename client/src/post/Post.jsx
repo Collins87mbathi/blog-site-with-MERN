@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const Post = ({post}) => {
 
     return (
-       
+       <div className="post">
            
        <div className="postInfo">
            
