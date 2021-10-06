@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Post = require('../models/Post');
 
-
+//create post 
 router.post('/', async (req,res)=> {
 try {
     const savePost = await new Post(req.body);
@@ -47,7 +47,31 @@ router.delete('/:id', async (req, res)=> {
 
 })
 
+//get All posts 
+router.get('/', async (req,res) => {
+  try {
+   const posts = await Post.find();
+  res.status(200).json(posts);
 
+  } catch (error) {
+   res.status(500).json(error); 
+  }
+
+
+})
+
+//get one post 
+router.get('/:id',async(req,res)=> {
+
+  try {
+    const post = await Post.findById(req.params.id);
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+  
+
+})
 
 
 
