@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './register.css';
 import { Link } from 'react-router-dom';
-import axios from "axios";
+
+import { axiosInstance } from '../../config';
 
 const Register = () => {
   const [username,setUsername] = useState("");
@@ -15,7 +16,7 @@ const handleSubmit = async (e) =>{
 e.preventDefault();
 setError(false);
 try {
-  const res = await axios.post("/register", {
+  const res = await axiosInstance.post("/register", {
     username,
     email,
     password,

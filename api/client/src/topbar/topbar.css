@@ -57,3 +57,15 @@
     cursor: pointer;
     margin-left:  15px; 
 }
+
+@media screen and (max-width:600px) {
+ .topLeft {
+     display: none;
+ }
+ .topListItem {
+     font-size:12px ;
+ }
+ .topCenter {
+     margin-left: 10px;
+ }
+}

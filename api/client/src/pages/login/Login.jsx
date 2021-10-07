@@ -1,8 +1,9 @@
 import React, { useContext, useRef } from 'react'
 import './login.css';
 import { Link } from 'react-router-dom';
-import axios from "axios"
+
 import { Context } from '../../context/Context';
+import { axiosInstance } from '../../config';
 
 const Login = () => {
  const userRef = useRef();
@@ -13,7 +14,7 @@ const Login = () => {
    e.preventDefault();
    dispatch({type:"LOGIN_START"});
    try {
-    const res = await axios.post("/login", {
+    const res = await axiosInstance.post("/login", {
       username: userRef.current.value,
       password: passwordRef.current.value,
     }) 

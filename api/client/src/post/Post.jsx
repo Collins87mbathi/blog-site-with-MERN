@@ -14,7 +14,7 @@ const Post = ({post}) => {
            </Link>
           
            <hr/>
-           <div className="postDate">{ post.createdAt }</div>
+           <div className="postDate">{new Date(post.createdAt).toDateString()}</div>
        </div>
        <p className='postDesc'>
        {post.desc}

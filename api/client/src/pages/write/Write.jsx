@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import './write.css';
-import axios from "axios";
+
 import { Context } from '../../context/Context';
+import { axiosInstance } from '../../config';
 
 const Write = () => {
     const [title,setTitle] = useState(""); 
@@ -17,7 +18,7 @@ const Write = () => {
     };
     
     try {
-     const res =  await axios.post("/posts", newPost);
+     const res =  await axiosInstance.post("/posts", newPost);
      window.location.replace("/post/" + res.data._id); 
     } catch (error) {
         

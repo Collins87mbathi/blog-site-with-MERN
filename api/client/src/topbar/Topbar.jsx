@@ -36,7 +36,7 @@ const Topbar  = () => {
                   
                     <img
                     className='topImg'
-                     src={user.profilePic} alt="pic" />
+                    src={user.profilePic} alt="pic" />
                        </Link>
                 ) : (
                     <ul className="topList">
@@ -46,7 +46,7 @@ const Topbar  = () => {
                 )
             }
             
-            <i className="topSearchIcon fas fa-search"></i>
+ 
         </div>
         </div>
     )
