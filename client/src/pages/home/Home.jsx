@@ -13,7 +13,7 @@ const Home = () => {
 
    useEffect(() => {
       const fetchPosts = async ()=>{
-         const res = await axiosInstance.get("/posts" + search);
+         const res = await axiosInstance.get("api/blog/posts" + search);
          console.log(res);
          setPosts(res.data)
       }
