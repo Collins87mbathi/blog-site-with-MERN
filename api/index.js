@@ -1,7 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const  mongoose  = require('mongoose');
+const path = require('path')
 const app = express()
+
 
 //routes
 const authRoute = require('./routes/Auth');
@@ -18,19 +20,14 @@ app.use(express.json());
 app.use('/api/blog',authRoute);
 app.use('/api/blog/posts',postRoute);
 
-app.use(express.static(path.join(__dirname, "/client")));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
-});
-
 
 //listening to server
-app.listen(process.env.PORT || 5000, ()=> {
+app.listen( process.env.PORT || 5000, ()=> {
 
 console.log('server is running');
 
 });
+
 
 
 
