@@ -21,6 +21,13 @@ app.use('/api/blog',authRoute);
 app.use('/api/blog/posts',postRoute);
 
 
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
+
 //listening to server
 app.listen( process.env.PORT || 5000, ()=> {
 

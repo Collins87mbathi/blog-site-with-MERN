@@ -16,8 +16,8 @@ const Singlepost = () => {
     const [updateMode,setUpdateMode] = useState(false);
 
     useEffect(() => {
-       const getPost = async () =>{
-           const res = await axiosInstance.get("/posts/" + path);
+       const getPost = async () => {
+           const res = await axiosInstance.get("/api/blog/posts" + path);
            setPost(res.data);
            setTitle(res.data.title);
            setDesc(res.data.desc);
@@ -28,7 +28,7 @@ const Singlepost = () => {
     
     const handleDelete = async ()=> {
         try {
-            await axiosInstance.delete(`/posts/${post._id}`, { data: {username:user.username},
+            await axiosInstance.delete(`/api/blog/posts/${post._id}`, { data: {username:user.username},
         });
             window.location.replace("/");
         } catch (error) {
@@ -39,7 +39,7 @@ const Singlepost = () => {
 
    const handleUpdate = async () =>{
     try {
-        await axiosInstance.put(`/posts/${post._id}`, { username:user.username, title,desc,
+        await axiosInstance.put(`/api/blog/posts/${post._id}`, { username:user.username, title,desc,
     });
        // window.location.reload();
        setUpdateMode(false);

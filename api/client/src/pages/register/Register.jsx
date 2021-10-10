@@ -16,7 +16,7 @@ const handleSubmit = async (e) =>{
 e.preventDefault();
 setError(false);
 try {
-  const res = await axiosInstance.post("/register", {
+  const res = await axiosInstance.post("api/blog/register", {
     username,
     email,
     password,

@@ -18,7 +18,7 @@ const Write = () => {
     };
     
     try {
-     const res =  await axiosInstance.post("/posts", newPost);
+     const res =  await axiosInstance.post("api/blog/posts", newPost);
      window.location.replace("/post/" + res.data._id); 
     } catch (error) {
         
