@@ -17,7 +17,7 @@ const Singlepost = () => {
 
     useEffect(() => {
        const getPost = async () => {
-           const res = await axiosInstance.get("/api/blog/posts" + path);
+           const res = await axiosInstance.get("/api/blog/posts/" + path);
            setPost(res.data);
            setTitle(res.data.title);
            setDesc(res.data.desc);
@@ -37,7 +37,7 @@ const Singlepost = () => {
         
     }
 
-   const handleUpdate = async () =>{
+   const handleUpdate = async () => {
     try {
         await axiosInstance.put(`/api/blog/posts/${post._id}`, { username:user.username, title,desc,
     });
